@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #register{
+      width: 250px;
+      height:250px;
+      margin: 50px auto;
+      text-align: center;
+    }
+    .from-group label{
+      display: block;
+      text-align: left;
+    }
+    #sub-btn{
+     width: 150px;
+     line-height: 28px;
+     margin: 10px 0;
+     cursor: pointer;
+    }
+    input{
+      margin-top: 2px;
+      width: 200px;
+      line-height: 20px;
+      outline:none;
+    }
+  </style>
+</head>
+<body>
+  <div id="register">
+    <div class="from-group">
+      <label for="username">用户名:</label>
+      <input type="text" class="form-control" id="username" placeholder="请输入用户名">   <!-- username的for 和 input中的username一一对应-->
+    </div>
+
+    <div class="from-group">
+      <label for="password">密码:</label>
+      <input type="text" class="from-group" id="password" placeholder="请输入密码">   <!-- 密码可视或者显示* -->
+    </div>
+
+    <button type="submit" id="sub-btn" class="btu-default but">登录</button>   <!-- buttom IE中是botton  其他类型是submit  -->
+
+    <div id="user" style="display: none">
+      <p><strong id="uname">欢迎</strong>，您已登录，<a href="javascript:;" id="logout">退出></a></p>
+    </div>
+  </div>
+</body>
+<script src="jquery.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  $('#sub-btn').click(function(){
+    let user_val = $('#username').val();
+    let pass_val = $('#password').val();
+
+    var params = new URLSearchParams();   //对象
+    
+    axios({
+      method: 'post',
+      url: '/user/12345',
+      data: {
+        firstName: 'Fred',
+        lastName: 'Flintstone'
+      }
+    });
+    console.log(params);
+  });
+</script>
+</html>
